@@ -45,6 +45,7 @@ function game() {
     const paper = document.querySelector('#paper');
     const scissors = document.querySelector('#scissors');
     const result = document.createElement('div');
+    const result2 = document.createElement('div');
     const player = document.createElement('div');
     const computer = document.createElement('div');
     player.textContent = `Player Score: ${playerScore}`;
@@ -52,10 +53,16 @@ function game() {
     body.appendChild(player);
     body.appendChild(computer);
     body.appendChild(result);
+    body.appendChild(result2);
     rock.addEventListener('click', () => {
         if (playerScore == 5 || computerScore == 5){
             playerScore = 0;
             computerScore = 0;
+            player.textContent = `Player Score: ${playerScore}`;
+            computer.textContent = `Computer Score: ${computerScore}`;
+            result.textContent = '';
+            result2.textContent = '';
+            return;
         }
         let temp = playRound(rock.getAttribute('id'), getComputerChoice());
         if (temp.includes('You Win')) {
@@ -66,20 +73,29 @@ function game() {
         }
         if (playerScore == 5) {
             player.textContent = `Player Score: ${playerScore}`;
-            alert('You won the series!');
+            result.textContent = temp;
+            result2.textContent = 'You won the series!';
         }
-        if (computerScore == 5) {
+        else if (computerScore == 5) {
             computer.textContent = `Computer Score: ${computerScore}`;
-            alert('The Computer won the series!');
+            result.textContent = temp;
+            result2.textContent = 'The Computer won the series!';
         }
-        player.textContent = `Player Score: ${playerScore}`;
-        computer.textContent = `Computer Score: ${computerScore}`;
-        result.textContent = temp;
+        else {
+            player.textContent = `Player Score: ${playerScore}`;
+            computer.textContent = `Computer Score: ${computerScore}`;
+            result.textContent = temp;
+        }
     });
     paper.addEventListener('click', () => {
         if (playerScore == 5 || computerScore == 5){
             playerScore = 0;
             computerScore = 0;
+            player.textContent = `Player Score: ${playerScore}`;
+            computer.textContent = `Computer Score: ${computerScore}`;
+            result.textContent = '';
+            result2.textContent = '';
+            return;
         }
         let temp = playRound(paper.getAttribute('id'), getComputerChoice());
         if (temp.includes('You Win')) {
@@ -90,20 +106,29 @@ function game() {
         }
         if (playerScore == 5) {
             player.textContent = `Player Score: ${playerScore}`;
-            alert('You won the series!');
+            result.textContent = temp;
+            result2.textContent = 'You won the series!';
         }
-        if (computerScore == 5) {
+        else if (computerScore == 5) {
             computer.textContent = `Computer Score: ${computerScore}`;
-            alert('The Computer won the series!');
+            result.textContent = temp;
+            result2.textContent = 'The Computer won the series!';
         }
-        player.textContent = `Player Score: ${playerScore}`;
-        computer.textContent = `Computer Score: ${computerScore}`;
-        result.textContent = temp;
+        else {
+            player.textContent = `Player Score: ${playerScore}`;
+            computer.textContent = `Computer Score: ${computerScore}`;
+            result.textContent = temp;
+        }
     });
     scissors.addEventListener('click', () => {
         if (playerScore == 5 || computerScore == 5){
             playerScore = 0;
             computerScore = 0;
+            player.textContent = `Player Score: ${playerScore}`;
+            computer.textContent = `Computer Score: ${computerScore}`;
+            result.textContent = '';
+            result2.textContent = '';
+            return;
         }
         let temp = playRound(scissors.getAttribute('id'), getComputerChoice());
         if (temp.includes('You Win')) {
@@ -114,15 +139,19 @@ function game() {
         }
         if (playerScore == 5) {
             player.textContent = `Player Score: ${playerScore}`;
-            alert('You won the series!');
+            result.textContent = temp;
+            result2.textContent = 'You won the series!';
         }
-        if (computerScore == 5) {
+        else if (computerScore == 5) {
             computer.textContent = `Computer Score: ${computerScore}`;
-            alert('The Computer won the series!');
+            result.textContent = temp;
+            result2.textContent = 'The Computer won the series!';
         }
-        player.textContent = `Player Score: ${playerScore}`;
-        computer.textContent = `Computer Score: ${computerScore}`;
-        result.textContent = temp;
+        else {
+            player.textContent = `Player Score: ${playerScore}`;
+            computer.textContent = `Computer Score: ${computerScore}`;
+            result.textContent = temp;
+        }
     });
 }
 game();
