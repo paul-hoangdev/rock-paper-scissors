@@ -53,6 +53,12 @@ function game() {
     body.appendChild(computer);
     body.appendChild(result);
     rock.addEventListener('click', () => {
+        if (playerScore == 5 || computerScore == 5){
+            playerScore = 0;
+            computerScore = 0;
+            player.textContent = `Player Score: ${playerScore}`;
+            computer.textContent = `Computer Score: ${computerScore}`;
+        }
         let temp = playRound(rock.getAttribute('id'), getComputerChoice());
         if (temp.includes('You Win')) {
             ++playerScore;
@@ -63,20 +69,22 @@ function game() {
         if (playerScore == 5) {
             player.textContent = `Player Score: ${playerScore}`;
             alert('You won the series!');
-            playerScore = 0;
-            computerScore = 0;
         }
         if (computerScore == 5) {
             computer.textContent = `Computer Score: ${computerScore}`;
             alert('The Computer won the series!');
-            playerScore = 0;
-            computerScore = 0;
         }
         player.textContent = `Player Score: ${playerScore}`;
         computer.textContent = `Computer Score: ${computerScore}`;
         result.textContent = temp;
     });
     paper.addEventListener('click', () => {
+        if (playerScore == 5 || computerScore == 5){
+            playerScore = 0;
+            computerScore = 0;
+            player.textContent = `Player Score: ${playerScore}`;
+            computer.textContent = `Computer Score: ${computerScore}`;
+        }
         let temp = playRound(paper.getAttribute('id'), getComputerChoice());
         if (temp.includes('You Win')) {
             ++playerScore;
@@ -101,6 +109,12 @@ function game() {
         result.textContent = temp;
     });
     scissors.addEventListener('click', () => {
+        if (playerScore == 5 || computerScore == 5){
+            playerScore = 0;
+            computerScore = 0;
+            player.textContent = `Player Score: ${playerScore}`;
+            computer.textContent = `Computer Score: ${computerScore}`;
+        }
         let temp = playRound(scissors.getAttribute('id'), getComputerChoice());
         if (temp.includes('You Win')) {
             ++playerScore;
