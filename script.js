@@ -56,8 +56,6 @@ function game() {
         if (playerScore == 5 || computerScore == 5){
             playerScore = 0;
             computerScore = 0;
-            player.textContent = `Player Score: ${playerScore}`;
-            computer.textContent = `Computer Score: ${computerScore}`;
         }
         let temp = playRound(rock.getAttribute('id'), getComputerChoice());
         if (temp.includes('You Win')) {
@@ -82,8 +80,6 @@ function game() {
         if (playerScore == 5 || computerScore == 5){
             playerScore = 0;
             computerScore = 0;
-            player.textContent = `Player Score: ${playerScore}`;
-            computer.textContent = `Computer Score: ${computerScore}`;
         }
         let temp = playRound(paper.getAttribute('id'), getComputerChoice());
         if (temp.includes('You Win')) {
@@ -95,14 +91,10 @@ function game() {
         if (playerScore == 5) {
             player.textContent = `Player Score: ${playerScore}`;
             alert('You won the series!');
-            playerScore = 0;
-            computerScore = 0;
         }
         if (computerScore == 5) {
             computer.textContent = `Computer Score: ${computerScore}`;
             alert('The Computer won the series!');
-            playerScore = 0;
-            computerScore = 0;
         }
         player.textContent = `Player Score: ${playerScore}`;
         computer.textContent = `Computer Score: ${computerScore}`;
@@ -112,8 +104,6 @@ function game() {
         if (playerScore == 5 || computerScore == 5){
             playerScore = 0;
             computerScore = 0;
-            player.textContent = `Player Score: ${playerScore}`;
-            computer.textContent = `Computer Score: ${computerScore}`;
         }
         let temp = playRound(scissors.getAttribute('id'), getComputerChoice());
         if (temp.includes('You Win')) {
@@ -125,14 +115,10 @@ function game() {
         if (playerScore == 5) {
             player.textContent = `Player Score: ${playerScore}`;
             alert('You won the series!');
-            playerScore = 0;
-            computerScore = 0;
         }
         if (computerScore == 5) {
             computer.textContent = `Computer Score: ${computerScore}`;
             alert('The Computer won the series!');
-            playerScore = 0;
-            computerScore = 0;
         }
         player.textContent = `Player Score: ${playerScore}`;
         computer.textContent = `Computer Score: ${computerScore}`;
