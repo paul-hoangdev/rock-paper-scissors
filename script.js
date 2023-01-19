@@ -33,15 +33,96 @@ function playRound(playerSelection, computerSelection) {
         return "You Lose! Paper is beaten by Scissors";
     }
     else {
-        return "Tie";
+        return "Tie!";
     }
 }
 
 function game() {
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Rock, Paper or Scissors?").toLowerCase();
-        let computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
-    }
+    let playerScore = 0;
+    let computerScore = 0;
+    const body = document.querySelector('body');
+    const rock = document.querySelector('#rock');
+    const paper = document.querySelector('#paper');
+    const scissors = document.querySelector('#scissors');
+    const result = document.createElement('div');
+    const player = document.createElement('div');
+    const computer = document.createElement('div');
+    player.textContent = `Player Score: ${playerScore}`;
+    computer.textContent = `Computer Score: ${computerScore}`;
+    body.appendChild(player);
+    body.appendChild(computer);
+    body.appendChild(result);
+    rock.addEventListener('click', () => {
+        let temp = playRound(rock.getAttribute('id'), getComputerChoice());
+        if (temp.includes('You Win')) {
+            ++playerScore;
+        }
+        else if (temp.includes('You Lose')) {
+            ++computerScore;
+        }
+        if (playerScore == 5) {
+            player.textContent = `Player Score: ${playerScore}`;
+            alert('You won the series!');
+            playerScore = 0;
+            computerScore = 0;
+        }
+        if (computerScore == 5) {
+            computer.textContent = `Computer Score: ${computerScore}`;
+            alert('The Computer won the series!');
+            playerScore = 0;
+            computerScore = 0;
+        }
+        player.textContent = `Player Score: ${playerScore}`;
+        computer.textContent = `Computer Score: ${computerScore}`;
+        result.textContent = temp;
+    });
+    paper.addEventListener('click', () => {
+        let temp = playRound(paper.getAttribute('id'), getComputerChoice());
+        if (temp.includes('You Win')) {
+            ++playerScore;
+        }
+        else if (temp.includes('You Lose')) {
+            ++computerScore;
+        }
+        if (playerScore == 5) {
+            player.textContent = `Player Score: ${playerScore}`;
+            alert('You won the series!');
+            playerScore = 0;
+            computerScore = 0;
+        }
+        if (computerScore == 5) {
+            computer.textContent = `Computer Score: ${computerScore}`;
+            alert('The Computer won the series!');
+            playerScore = 0;
+            computerScore = 0;
+        }
+        player.textContent = `Player Score: ${playerScore}`;
+        computer.textContent = `Computer Score: ${computerScore}`;
+        result.textContent = temp;
+    });
+    scissors.addEventListener('click', () => {
+        let temp = playRound(scissors.getAttribute('id'), getComputerChoice());
+        if (temp.includes('You Win')) {
+            ++playerScore;
+        }
+        else if (temp.includes('You Lose')) {
+            ++computerScore;
+        }
+        if (playerScore == 5) {
+            player.textContent = `Player Score: ${playerScore}`;
+            alert('You won the series!');
+            playerScore = 0;
+            computerScore = 0;
+        }
+        if (computerScore == 5) {
+            computer.textContent = `Computer Score: ${computerScore}`;
+            alert('The Computer won the series!');
+            playerScore = 0;
+            computerScore = 0;
+        }
+        player.textContent = `Player Score: ${playerScore}`;
+        computer.textContent = `Computer Score: ${computerScore}`;
+        result.textContent = temp;
+    });
 }
 game();
